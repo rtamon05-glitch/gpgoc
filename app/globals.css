@@ -1,0 +1,97 @@
+@import 'tailwindcss';
+@import '../styles/tokens.css';
+
+@theme inline {
+  --color-navy-900: var(--gp-navy-900);
+  --color-navy-700: var(--gp-navy-700);
+  --color-navy-500: var(--gp-navy-500);
+  --color-gold-500: var(--gp-gold-500);
+  --color-gold-300: var(--gp-gold-300);
+  --color-gold-100: var(--gp-gold-100);
+  --color-cream-50: var(--gp-cream-50);
+  --color-charcoal-800: var(--gp-charcoal-800);
+  --color-ink-900: var(--gp-ink-900);
+  --color-ink-600: var(--gp-ink-600);
+  --color-ink-400: var(--gp-ink-400);
+  --color-line: var(--gp-line);
+  --color-accent: var(--gp-accent);
+  --color-accent-soft: var(--gp-accent-soft);
+  --color-accent-contrast: var(--gp-accent-contrast);
+
+  --font-display: var(--font-playfair), 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Modular scale, base 16px, ~1.25 ratio at small sizes widening at display sizes */
+  --text-display-lg: clamp(2.75rem, 1.9rem + 4.2vw, 5rem);
+  --text-display-lg--line-height: 1.04;
+  --text-display: clamp(2.25rem, 1.7rem + 2.6vw, 3.75rem);
+  --text-display--line-height: 1.08;
+  --text-h2: clamp(1.75rem, 1.45rem + 1.4vw, 2.5rem);
+  --text-h2--line-height: 1.15;
+  --text-h3: clamp(1.3rem, 1.2rem + 0.5vw, 1.625rem);
+  --text-h3--line-height: 1.25;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background-color: var(--gp-white);
+    color: var(--gp-ink-900);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    color: var(--gp-navy-900);
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Visible focus for every interactive element — WCAG 2.4.7 */
+  :focus-visible {
+    outline: 3px solid var(--gp-gold-500);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  ::selection {
+    background: var(--gp-gold-300);
+    color: var(--gp-navy-900);
+  }
+}
+
+@utility gp-rule {
+  /* The short gold rule used as a section eyebrow divider throughout the site. */
+  display: block;
+  width: 3rem;
+  height: 2px;
+  background: var(--gp-accent);
+}
