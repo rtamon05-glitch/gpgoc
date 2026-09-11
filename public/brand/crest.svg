@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="God's Plan Group crest">
+  <defs>
+    <linearGradient id="gpGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E4C765"/>
+      <stop offset="55%" stop-color="#C9A227"/>
+      <stop offset="100%" stop-color="#9C7A16"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="70" r="38" fill="#0B1F3A"/>
+  <g fill="none" stroke="url(#gpGold)" stroke-width="1.6" opacity="0.75">
+    <circle cx="60" cy="70" r="38"/>
+    <ellipse cx="60" cy="70" rx="15" ry="38"/>
+    <path d="M22 70h76M27 52h66M27 88h66"/>
+  </g>
+  <path d="M30 36 L40 48 L50 28 L60 44 L70 28 L80 48 L90 36 L86 56 L34 56 Z"
+        fill="url(#gpGold)" stroke="#9C7A16" stroke-width="1"/>
+  <circle cx="30" cy="34" r="3.4" fill="url(#gpGold)"/>
+  <circle cx="60" cy="25" r="3.8" fill="url(#gpGold)"/>
+  <circle cx="90" cy="34" r="3.4" fill="url(#gpGold)"/>
+  <text x="60" y="83" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="30" font-weight="700" fill="url(#gpGold)" letter-spacing="1">GP</text>
+</svg>

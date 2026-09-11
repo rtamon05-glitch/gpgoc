@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 150" role="img" aria-label="God's Plan Group of Company">
+  <defs>
+    <linearGradient id="gpGoldL" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E4C765"/>
+      <stop offset="55%" stop-color="#C9A227"/>
+      <stop offset="100%" stop-color="#9C7A16"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(8,12) scale(0.85)">
+    <circle cx="60" cy="70" r="38" fill="#0B1F3A"/>
+    <g fill="none" stroke="url(#gpGoldL)" stroke-width="1.6" opacity="0.75">
+      <circle cx="60" cy="70" r="38"/>
+      <ellipse cx="60" cy="70" rx="15" ry="38"/>
+      <path d="M22 70h76M27 52h66M27 88h66"/>
+    </g>
+    <path d="M30 36 L40 48 L50 28 L60 44 L70 28 L80 48 L90 36 L86 56 L34 56 Z"
+          fill="url(#gpGoldL)" stroke="#9C7A16" stroke-width="1"/>
+    <circle cx="30" cy="34" r="3.4" fill="url(#gpGoldL)"/>
+    <circle cx="60" cy="25" r="3.8" fill="url(#gpGoldL)"/>
+    <circle cx="90" cy="34" r="3.4" fill="url(#gpGoldL)"/>
+    <text x="60" y="83" text-anchor="middle" font-family="Georgia, serif" font-size="30"
+          font-weight="700" fill="url(#gpGoldL)">GP</text>
+  </g>
+  <text x="126" y="68" font-family="Georgia, 'Times New Roman', serif" font-size="27"
+        font-weight="700" fill="#0B1F3A" letter-spacing="0.5">GOD'S PLAN</text>
+  <text x="126" y="96" font-family="Georgia, 'Times New Roman', serif" font-size="17"
+        fill="#142A4D" letter-spacing="3.6">GROUP OF COMPANY</text>
+  <path d="M126 110 h150" stroke="#C9A227" stroke-width="2"/>
+  <text x="126" y="130" font-family="Georgia, serif" font-size="12.5" fill="#C9A227"
+        letter-spacing="1.6">Built on Faith • Driven by Excellence</text>
+</svg>

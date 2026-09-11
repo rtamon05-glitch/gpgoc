@@ -1,0 +1,38 @@
+/*
+ * God's Plan Group of Company — design tokens.
+ * Single source of truth for brand colour, derived from the crown + globe
+ * monogram (navy / gold, serif wordmark). Consumed by app/globals.css, which
+ * re-exports them to Tailwind via @theme.
+ */
+
+:root {
+  /* Base palette */
+  --gp-navy-900: #0b1f3a;
+  --gp-navy-700: #142a4d;
+  --gp-navy-500: #24406f;
+  --gp-gold-500: #c9a227;
+  --gp-gold-300: #e4c765;
+  --gp-gold-100: #f2e4b4;
+  --gp-cream-50: #faf7f0;
+  --gp-white: #ffffff;
+  --gp-charcoal-800: #1c1c1e;
+
+  /* Neutrals for body copy and rules */
+  --gp-ink-900: #14181f;
+  --gp-ink-600: #4a5361;
+  --gp-ink-400: #7b8593;
+  --gp-line: #e5ded0;
+
+  /* Per-subsidiary accents (layered over the base navy/gold system) */
+  --gp-accent-blue: #2f6fed;   /* Tech */
+  --gp-accent-green: #5c7a3d;  /* Sunflower Factory, Farm */
+
+  /*
+   * Subsidiary theming contract. A SubsidiaryShell sets --gp-accent and
+   * --gp-accent-soft on its wrapper; every accent-aware component reads only
+   * these two, so a new subsidiary needs no component changes.
+   */
+  --gp-accent: var(--gp-gold-500);
+  --gp-accent-soft: var(--gp-gold-100);
+  --gp-accent-contrast: var(--gp-navy-900);
+}
