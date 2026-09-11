@@ -188,6 +188,30 @@ shared store.
 
 ---
 
+## CI
+
+`.github/workflows/ci.yml` runs on every push to `main` and every pull
+request: `npm ci`, typecheck, build, then `npm run audit`.
+
+`scripts/audit-site.mjs` serves the production build and checks the things
+that are cheap to break and expensive to notice — every sitemap route returns
+200, one `<h1>` and one meta description per page, every `<img>` has alt text,
+every form control has a programmatic label, and the enquiry endpoint still
+returns 422 on bad input and 200 on a honeypot hit.
+
+Two details worth knowing if you edit it:
+
+- It refuses to start if its port is already in use. Without that check it
+  would silently grade whichever server happened to be listening — including a
+  stale one from an earlier run — and report a pass for a build it never
+  looked at.
+- It spawns the Next binary directly in its own process group and kills the
+  group on exit. Going through `npx` leaves the real `next-server` grandchild
+  alive, which then holds the port for the next run.
+
+Run it locally with `npm run build && npm run audit`. Set `AUDIT_PORT` if 3400
+is busy.
+
 ## What has been verified
 
 Against a production build served locally:
@@ -202,6 +226,10 @@ Against a production build served locally:
   submissions so bots cannot detect the rejection.
 - No "guaranteed returns" phrasing anywhere; the financial-technology
   disclosures render as intended.
+
+The audit was checked in both directions: a deliberately injected duplicate
+`<h1>` and unlabelled input made it exit non-zero and name both faults, and it
+passes again once they are removed.
 
 Not yet done: a Lighthouse run (needs a deployed URL for a meaningful
 Performance score), and real cross-browser/device testing.
