@@ -45,6 +45,12 @@ export type Company = {
     soft: string;
     /** Text colour that reads accessibly on `color`. */
     contrast: string;
+    /**
+     * Darkened variant used for accent-coloured *text* on light grounds.
+     * The display `color` fails WCAG AA as small text; this clears 4.5:1 on
+     * both white and cream. See styles/tokens.css.
+     */
+    ink: string;
   };
   /** `dark` subsidiaries invert the shell chrome (Hotels). */
   mood: 'light' | 'dark';

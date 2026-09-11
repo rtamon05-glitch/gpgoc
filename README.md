@@ -135,6 +135,35 @@ If you wire up Firestore, nothing else needs to change.
 
 ---
 
+## Deploying
+
+The site is **not** fully static: `/api/inquiries` needs a Node runtime, so
+plain Firebase Hosting (static files only) cannot serve it. Use **Firebase App
+Hosting**, which runs the Next.js server while still serving the prerendered
+pages from the CDN.
+
+`apphosting.yaml` and `firebase.json` are committed and ready. What is missing
+is a Firebase project — supply one and deploy is:
+
+```bash
+npm install -g firebase-tools
+firebase login
+firebase apphosting:backends:create --project <your-project-id>
+# connect this repo and the `main` branch when prompted
+```
+
+After that, every push to `main` deploys automatically.
+
+Set `NEXT_PUBLIC_SITE_URL` in `apphosting.yaml` to the real domain before the
+first production deploy — it drives canonical URLs, `sitemap.xml` and
+`robots.txt`.
+
+Secrets (the Firebase service account, the GA4 id) are created with
+`firebase apphosting:secrets:set <name>` and then uncommented in
+`apphosting.yaml`. The site is safe to deploy before the service account
+exists: every form reports honestly that it could not record the submission,
+rather than failing silently.
+
 ## Before launch
 
 ### Content still to be confirmed with the client
@@ -230,6 +259,27 @@ Against a production build served locally:
 The audit was checked in both directions: a deliberately injected duplicate
 `<h1>` and unlabelled input made it exit non-zero and name both faults, and it
 passes again once they are removed.
+
+### Lighthouse
+
+Run against the production build on five representative pages (mobile preset):
+
+| Page | Perf | A11y | Best practices | SEO | LCP | CLS |
+|---|---|---|---|---|---|---|
+| Hub home | 98 | 100 | 100 | 100 | 2.5 s | 0 |
+| Hotels (dark) | 97 | 100 | 100 | 100 | 2.5 s | 0 |
+| Contact (form) | 98 | 100 | 100 | 100 | 2.5 s | 0 |
+| Agri School | 97 | 100 | 100 | 100 | 2.6 s | 0 |
+| Portfolio | 98 | 100 | 100 | 100 | 2.4 s | 0 |
+
+All four categories clear the >= 90 target. CLS is 0 everywhere.
+
+Two caveats. These are **localhost** numbers: no network latency, no TLS
+handshake, no CDN, so the Performance column is optimistic and should be
+re-measured against the deployed URL. And LCP sits right on the 2.5 s
+threshold, so it is the first thing to check after deploying — the heroes are
+text on a CSS gradient, so the likeliest real-world lever is font delivery
+rather than images.
 
 Not yet done: a Lighthouse run (needs a deployed URL for a meaningful
 Performance score), and real cross-browser/device testing.

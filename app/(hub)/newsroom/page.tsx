@@ -38,9 +38,9 @@ export default function NewsroomPage() {
                     })}
                   </time>
                   <span aria-hidden="true">·</span>
-                  <span className="text-accent">{companyName(post.companyId)}</span>
+                  <span className="text-accent-ink">{companyName(post.companyId)}</span>
                 </div>
-                <h2 className="mt-3 text-h3 group-hover:text-accent">{post.title}</h2>
+                <h2 className="mt-3 text-h3 group-hover:text-accent-ink">{post.title}</h2>
                 <p className="mt-3 max-w-3xl text-sm text-ink-600">{post.excerpt}</p>
               </Link>
             </li>

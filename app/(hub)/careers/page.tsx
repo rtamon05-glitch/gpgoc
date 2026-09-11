@@ -61,7 +61,7 @@ export default function CareersPage() {
               <p className="mt-2 text-sm text-ink-600">{company.sector}</p>
               <Link
                 href={company.slug === 'tech' ? '/tech/careers' : `/${company.slug}`}
-                className="mt-4 inline-block text-sm font-medium underline underline-offset-4 hover:text-accent"
+                className="mt-4 inline-block text-sm font-medium underline underline-offset-4 hover:text-accent-ink"
               >
                 {company.slug === 'tech' ? 'Tech careers' : `Visit ${company.shortName}`} &rarr;
               </Link>

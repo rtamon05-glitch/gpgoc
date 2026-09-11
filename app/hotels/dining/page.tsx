@@ -39,7 +39,7 @@ export default function DiningPage() {
             <article key={concept.id} id={concept.id} className="scroll-mt-28 bg-white p-7">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-ink">
                     {concept.kind}
                   </p>
                   <h2 className="mt-2 text-h3">{concept.name}</h2>

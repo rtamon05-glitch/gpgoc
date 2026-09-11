@@ -24,7 +24,7 @@ export function Accordion({
         <details key={item.title} className="group">
           <summary
             className={`flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left font-display text-lg ${
-              onDark ? 'text-white hover:text-gold-300' : 'text-navy-900 hover:text-accent'
+              onDark ? 'text-white hover:text-gold-300' : 'text-navy-900 hover:text-accent-ink'
             }`}
           >
             <span>{item.title}</span>
@@ -36,7 +36,7 @@ export function Accordion({
               ) : null}
               <span
                 aria-hidden="true"
-                className="text-accent transition-transform group-open:rotate-45"
+                className="text-accent-ink transition-transform group-open:rotate-45"
               >
                 +
               </span>

@@ -52,7 +52,7 @@ export function Hero({
         {eyebrow ? (
           <p
             className={`mb-4 text-xs font-semibold uppercase tracking-[0.26em] ${
-              onDark ? 'text-gold-300' : 'text-accent'
+              onDark ? 'text-gold-300' : 'text-accent-ink'
             }`}
           >
             {eyebrow}

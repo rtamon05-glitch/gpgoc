@@ -42,7 +42,7 @@ export default function ProductsPage() {
                 <StatusPill status="planning" />
               </div>
               <p className="mt-3 max-w-3xl text-ink-600">{product.description}</p>
-              <h3 className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              <h3 className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-ink">
                 Planned formats
               </h3>
               <ul className="mt-3 flex flex-wrap gap-2">

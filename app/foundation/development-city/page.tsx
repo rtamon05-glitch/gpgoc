@@ -97,7 +97,7 @@ export default function DevelopmentCityPage() {
         <ul className="space-y-px overflow-hidden rounded-sm border border-line bg-line">
           {DEVELOPMENT_CITY_DEPENDENCIES.map((item, i) => (
             <li key={item} className="flex items-start gap-4 bg-white p-5">
-              <span className="font-display text-2xl text-accent">{String(i + 1).padStart(2, '0')}</span>
+              <span className="font-display text-2xl text-accent-ink">{String(i + 1).padStart(2, '0')}</span>
               <span className="pt-1 text-ink-600">{item}</span>
             </li>
           ))}

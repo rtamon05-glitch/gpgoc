@@ -109,7 +109,7 @@ export function Steps({ steps, onDark = false }: { steps: { title: string; body:
     <ol className="grid gap-px overflow-hidden rounded-sm border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
       {steps.map((step, i) => (
         <li key={step.title} className={`p-6 ${onDark ? 'bg-navy-900' : 'bg-white'}`}>
-          <span className="font-display text-3xl text-accent">{String(i + 1).padStart(2, '0')}</span>
+          <span className="font-display text-3xl text-accent-ink">{String(i + 1).padStart(2, '0')}</span>
           <h3 className={`mt-3 text-h3 ${onDark ? 'text-white' : ''}`}>{step.title}</h3>
           <p className={`mt-2 text-sm ${onDark ? 'text-white/70' : 'text-ink-600'}`}>{step.body}</p>
         </li>

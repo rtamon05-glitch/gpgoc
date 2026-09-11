@@ -20,12 +20,26 @@
   /* Neutrals for body copy and rules */
   --gp-ink-900: #14181f;
   --gp-ink-600: #4a5361;
-  --gp-ink-400: #7b8593;
+  /* Darkened from #7b8593, which failed WCAG AA at 3.7:1 on white. */
+  --gp-ink-400: #636d7b;
   --gp-line: #e5ded0;
 
   /* Per-subsidiary accents (layered over the base navy/gold system) */
   --gp-accent-blue: #2f6fed;   /* Tech */
   --gp-accent-green: #5c7a3d;  /* Sunflower Factory, Farm */
+
+  /*
+   * Text-safe accents.
+   *
+   * The display accents above are tuned for rules, borders and dots, where
+   * contrast rules do not apply. As small text on white or cream they fail
+   * WCAG AA badly — the gold measures 2.4:1 against a 4.5:1 requirement. These
+   * darkened variants are what accent-coloured *text* on a light ground uses;
+   * every one clears 4.5:1 on both white and cream.
+   */
+  --gp-accent-ink-gold: #7f6410;   /* 5.6:1 on white, 5.3:1 on cream */
+  --gp-accent-ink-blue: #2a63d6;   /* 5.5:1 on white, 5.1:1 on cream */
+  --gp-accent-ink-green: #506b35;  /* 6.0:1 on white, 5.6:1 on cream */
 
   /*
    * Subsidiary theming contract. A SubsidiaryShell sets --gp-accent and
@@ -35,4 +49,5 @@
   --gp-accent: var(--gp-gold-500);
   --gp-accent-soft: var(--gp-gold-100);
   --gp-accent-contrast: var(--gp-navy-900);
+  --gp-accent-ink: var(--gp-accent-ink-gold);
 }
