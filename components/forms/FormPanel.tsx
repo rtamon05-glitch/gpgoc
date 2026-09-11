@@ -13,7 +13,9 @@ export function FormPanel({
   children: ReactNode;
 }) {
   return (
-    <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
+    <div
+      className={`grid gap-12 ${aside ? 'lg:grid-cols-[1.4fr_1fr]' : 'max-w-3xl'}`}
+    >
       <div>
         <h2 className="text-h2">{title}</h2>
         <span className="gp-rule mt-5" />

@@ -133,7 +133,7 @@ export function CrestWatermark({ className }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={`pointer-events-none absolute select-none opacity-[0.045] print:hidden ${className ?? ''}`}
+      className={`pointer-events-none absolute hidden select-none opacity-[0.045] sm:block print:hidden ${className ?? ''}`}
     >
       <Crest size={420} gradientId="gpWatermark" />
     </div>

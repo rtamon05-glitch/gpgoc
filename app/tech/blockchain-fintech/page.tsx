@@ -96,7 +96,7 @@ export default function BlockchainFintechPage() {
         />
         <ol className="space-y-px overflow-hidden rounded-sm border border-line bg-line">
           {FINTECH_ROADMAP.map((phase) => (
-            <li key={phase.phase} className="grid gap-4 bg-white p-6 sm:grid-cols-[9rem_1fr]">
+            <li key={phase.phase} className="grid gap-4 bg-white p-6 sm:grid-cols-[11rem_1fr]">
               <div>
                 <p className="font-display text-lg text-accent">{phase.phase}</p>
                 <div className="mt-2">

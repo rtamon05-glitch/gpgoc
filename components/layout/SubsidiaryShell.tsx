@@ -31,15 +31,18 @@ export function SubsidiaryShell({
 }
 
 function SubsidiaryNav({ company }: { company: Company }) {
+  const dark = company.mood === 'dark';
   return (
     <nav
       aria-label={`${company.shortName} sections`}
-      className="border-b border-line bg-cream-50"
+      className={`border-b ${dark ? 'border-white/10 bg-charcoal-800' : 'border-line bg-cream-50'}`}
     >
       <div className="mx-auto flex max-w-6xl items-center gap-6 overflow-x-auto px-5 sm:px-8">
         <Link
           href={`/${company.slug}`}
-          className="flex-shrink-0 border-r border-line py-4 pr-6 font-display text-sm font-semibold text-navy-900"
+          className={`flex-shrink-0 border-r py-4 pr-6 font-display text-sm font-semibold ${
+            dark ? 'border-white/15 text-white' : 'border-line text-navy-900'
+          }`}
         >
           {company.shortName}
         </Link>
@@ -48,7 +51,9 @@ function SubsidiaryNav({ company }: { company: Company }) {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="block whitespace-nowrap px-3 py-4 text-sm text-ink-600 transition-colors hover:text-accent"
+                className={`block whitespace-nowrap px-3 py-4 text-sm transition-colors ${
+                  dark ? 'text-white/70 hover:text-gold-300' : 'text-ink-600 hover:text-accent'
+                }`}
               >
                 {link.label}
               </Link>

@@ -30,7 +30,7 @@ export function StatusPill({
   const tone = onDark ? TONE_CLASS_DARK[meta.tone] : TONE_CLASS[meta.tone];
   return (
     <span
-      className={`inline-flex items-center gap-2 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${tone} ${className ?? ''}`}
+      className={`inline-flex items-center gap-2 whitespace-nowrap rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-[0.12em] ${tone} ${className ?? ''}`}
     >
       <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-current" />
       {meta.label}
