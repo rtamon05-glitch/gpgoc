@@ -21,7 +21,7 @@ export function CTABanner({
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-16 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:py-20">
         <div className="max-w-2xl">
           {eyebrow ? (
-            <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] ${onDark ? 'text-gold-300' : 'text-accent'}`}>
+            <p className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] ${onDark ? 'text-gold-300' : 'text-accent-ink'}`}>
               {eyebrow}
             </p>
           ) : null}

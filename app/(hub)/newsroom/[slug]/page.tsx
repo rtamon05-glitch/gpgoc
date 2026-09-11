@@ -60,7 +60,7 @@ export default async function NewsPostPage({ params }: { params: Promise<{ slug:
             })}
           </time>
           <span aria-hidden="true">·</span>
-          <span className="text-accent">{company ? company.name : 'Group-wide'}</span>
+          <span className="text-accent-ink">{company ? company.name : 'Group-wide'}</span>
         </div>
         <h1 className="mt-4 text-display">{post.title}</h1>
         <span className="gp-rule mt-6" />

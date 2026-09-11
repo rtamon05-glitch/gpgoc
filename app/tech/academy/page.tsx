@@ -43,7 +43,7 @@ export default function AcademyPage() {
                 </p>
               </div>
               <p className="mt-3 max-w-3xl text-ink-600">{course.description}</p>
-              <h4 className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              <h4 className="mt-5 text-xs font-semibold uppercase tracking-[0.16em] text-accent-ink">
                 By the end you can
               </h4>
               <ul className="mt-3 grid gap-2 sm:grid-cols-3">

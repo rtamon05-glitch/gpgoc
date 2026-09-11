@@ -78,7 +78,7 @@ export default function AboutPage() {
         <ol className="space-y-px overflow-hidden rounded-sm border border-line bg-line">
           {GROUP_TIMELINE.map((phase) => (
             <li key={phase.period} className="grid gap-4 bg-white p-6 sm:grid-cols-[10rem_1fr]">
-              <p className="font-display text-lg text-accent">{phase.period}</p>
+              <p className="font-display text-lg text-accent-ink">{phase.period}</p>
               <div>
                 <h3 className="text-h3">{phase.title}</h3>
                 <p className="mt-2 text-sm text-ink-600">{phase.body}</p>

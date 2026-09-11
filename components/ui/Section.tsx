@@ -57,7 +57,7 @@ export function SectionHeader({
       {eyebrow ? (
         <p
           className={`mb-3 text-xs font-semibold uppercase tracking-[0.22em] ${
-            onDark ? 'text-gold-300' : 'text-accent'
+            onDark ? 'text-gold-300' : 'text-accent-ink'
           }`}
         >
           {eyebrow}

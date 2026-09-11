@@ -122,7 +122,7 @@ export default function HomePage() {
           <SectionHeader eyebrow="Newsroom" title="Latest from the group" />
           <Link
             href="/newsroom"
-            className="mb-10 text-sm font-medium text-navy-900 underline underline-offset-4 hover:text-accent"
+            className="mb-10 text-sm font-medium text-navy-900 underline underline-offset-4 hover:text-accent-ink"
           >
             All news &rarr;
           </Link>

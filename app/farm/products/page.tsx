@@ -36,7 +36,7 @@ export default function FarmProductsPage() {
             <article key={product.id} id={product.id} className="scroll-mt-28 bg-white p-7">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <h2 className="text-h3">{product.name}</h2>
-                <p className="text-sm text-accent">{product.availability}</p>
+                <p className="text-sm text-accent-ink">{product.availability}</p>
               </div>
               <p className="mt-3 max-w-3xl text-ink-600">{product.description}</p>
               <ul className="mt-5 flex flex-wrap gap-2">

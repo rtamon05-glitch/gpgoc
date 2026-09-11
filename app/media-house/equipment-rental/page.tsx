@@ -49,7 +49,7 @@ export default function EquipmentRentalPage() {
                       <p className="font-medium text-ink-900">{item.name}</p>
                       <p className="mt-1 text-sm text-ink-600">{item.description}</p>
                     </div>
-                    <p className="text-sm text-accent">{item.availability}</p>
+                    <p className="text-sm text-accent-ink">{item.availability}</p>
                   </li>
                 ))}
               </ul>

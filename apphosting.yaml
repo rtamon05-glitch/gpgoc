@@ -1,0 +1,52 @@
+# Firebase App Hosting configuration.
+#
+# Plain Firebase Hosting serves static files only, and this site is not fully
+# static: /api/inquiries needs a Node runtime (see app/api/inquiries/route.ts).
+# App Hosting runs the Next.js server, so the marketing pages are still served
+# from the CDN while the enquiry endpoint keeps working.
+#
+# To deploy:
+#   1. firebase experiments:enable webframeworks   (if prompted)
+#   2. firebase apphosting:backends:create --project <your-project-id>
+#   3. Connect this repository and branch `main` when prompted.
+# After that every push to main deploys automatically.
+
+runConfig:
+  # Scale to zero when idle — this is a marketing site, not a busy API.
+  minInstances: 0
+  maxInstances: 10
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+
+env:
+  - variable: NEXT_PUBLIC_SITE_URL
+    # Drives canonical URLs, sitemap.xml and robots.txt. Change to the real
+    # domain before the first production deploy.
+    value: https://godsplangroup.com
+    availability:
+      - BUILD
+      - RUNTIME
+
+  - variable: NEXT_PUBLIC_CONTACT_EMAIL
+    value: info@godsplangroup.com
+    availability:
+      - BUILD
+      - RUNTIME
+
+  # --- Secrets -------------------------------------------------------------
+  # Create each with:  firebase apphosting:secrets:set <name>
+  # then uncomment. Until FIREBASE_SERVICE_ACCOUNT_JSON is set, every form
+  # reports honestly that it could not record the submission (by design —
+  # see lib/inquiries.ts), so the site is safe to deploy without it.
+  #
+  # - variable: FIREBASE_SERVICE_ACCOUNT_JSON
+  #   secret: firebase-service-account
+  #   availability:
+  #     - RUNTIME
+  #
+  # - variable: NEXT_PUBLIC_GA_ID
+  #   value: G-XXXXXXXXXX
+  #   availability:
+  #     - BUILD
+  #     - RUNTIME

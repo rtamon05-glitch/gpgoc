@@ -1,0 +1,7 @@
+{
+  "apphosting": {
+    "backendId": "gpgoc-web",
+    "rootDir": ".",
+    "ignore": ["node_modules", ".git", ".next", "firebase-debug.log"]
+  }
+}

@@ -20,6 +20,7 @@ export function SubsidiaryShell({
     '--gp-accent': company.accent.color,
     '--gp-accent-soft': company.accent.soft,
     '--gp-accent-contrast': company.accent.contrast,
+    '--gp-accent-ink': company.accent.ink,
   } as CSSProperties;
 
   return (
@@ -52,7 +53,7 @@ function SubsidiaryNav({ company }: { company: Company }) {
               <Link
                 href={link.href}
                 className={`block whitespace-nowrap px-3 py-4 text-sm transition-colors ${
-                  dark ? 'text-white/70 hover:text-gold-300' : 'text-ink-600 hover:text-accent'
+                  dark ? 'text-white/70 hover:text-gold-300' : 'text-ink-600 hover:text-accent-ink'
                 }`}
               >
                 {link.label}

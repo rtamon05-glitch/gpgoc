@@ -48,7 +48,7 @@ export default function MembershipPage() {
         <div className="grid gap-6 lg:grid-cols-4">
           {MEMBERSHIP_TIERS.map((tier) => (
             <div key={tier.name} className="flex flex-col rounded-sm border border-line bg-white p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent-ink">
                 {tier.positioning}
               </p>
               <h3 className="mt-2 text-h3">{tier.name}</h3>

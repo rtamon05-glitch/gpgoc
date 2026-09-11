@@ -22,6 +22,13 @@ export function PortfolioGrid({
 
   return (
     <div>
+      {/*
+        The cards are <h3>, so the grid needs an <h2> above them or the heading
+        order skips a level. Visible rather than screen-reader-only: the filter
+        row reads better with something to label it.
+      */}
+      <h2 className="text-h3">Browse the work</h2>
+      <span className="gp-rule mt-4 mb-8" />
       <div role="group" aria-label="Filter portfolio by category" className="mb-8 flex flex-wrap gap-2">
         {filters.map((filter) => {
           const selected = filter === active;
@@ -63,7 +70,7 @@ export function PortfolioGrid({
               }}
             />
             <div className="flex flex-1 flex-col p-6">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent">
+              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-accent-ink">
                 {item.category}
               </p>
               <h3 className="mt-2 text-h3">{item.title}</h3>
