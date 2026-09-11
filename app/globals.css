@@ -95,3 +95,37 @@
   height: 2px;
   background: var(--gp-accent);
 }
+
+/*
+ * Print. The Foundation prospectus is published as a print-optimised page
+ * rather than a PDF attachment, so site chrome has to drop away cleanly.
+ */
+@media print {
+  header[class*='sticky'],
+  footer,
+  nav[aria-label$='sections'] {
+    display: none !important;
+  }
+
+  body {
+    background: #fff;
+    color: #000;
+    font-size: 11pt;
+  }
+
+  a[href^='http']::after {
+    content: ' (' attr(href) ')';
+    font-size: 9pt;
+    color: #555;
+  }
+
+  section {
+    break-inside: avoid;
+  }
+
+  h1,
+  h2,
+  h3 {
+    break-after: avoid;
+  }
+}
