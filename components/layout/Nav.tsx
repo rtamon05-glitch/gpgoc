@@ -4,8 +4,22 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useId, useState } from 'react';
 import { Logo } from '@/components/brand/Logo';
-import { COMPANIES } from '@/content/companies';
 import { buttonClass } from '@/components/ui/Button';
+
+/**
+ * Only the fields the nav renders.
+ *
+ * Nav is a client component, so anything it imports is serialised into the
+ * bundle on every page. Importing the content module directly shipped all six
+ * companies' summaries, visions and core values to the browser to render a
+ * dropdown that shows four fields — so the server passes a slim list instead.
+ */
+export type NavCompany = {
+  slug: string;
+  name: string;
+  sector: string;
+  accent: string;
+};
 
 const HUB_LINKS = [
   { href: '/about', label: 'About' },
@@ -15,7 +29,7 @@ const HUB_LINKS = [
   { href: '/contact', label: 'Contact' },
 ];
 
-export function Nav() {
+export function Nav({ companies }: { companies: NavCompany[] }) {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [companiesOpen, setCompaniesOpen] = useState(false);
@@ -61,7 +75,7 @@ export function Nav() {
             </button>
             {companiesOpen ? (
               <div className="absolute left-0 top-full w-80 rounded-sm border border-white/10 bg-navy-900 p-2 shadow-2xl">
-                {COMPANIES.map((company) => (
+                {companies.map((company) => (
                   <Link
                     key={company.slug}
                     href={`/${company.slug}`}
@@ -70,7 +84,7 @@ export function Nav() {
                     <span
                       aria-hidden="true"
                       className="mt-1.5 h-2 w-2 flex-shrink-0 rounded-full"
-                      style={{ background: company.accent.color }}
+                      style={{ background: company.accent }}
                     />
                     <span>
                       <span className="block text-sm font-medium text-white">{company.name}</span>
@@ -119,7 +133,7 @@ export function Nav() {
         <nav aria-label="Primary (mobile)" className="mx-auto max-w-6xl px-5 py-4 sm:px-8">
           <p className="mb-2 text-xs uppercase tracking-[0.2em] text-white/45">Our companies</p>
           <ul className="mb-5 space-y-1">
-            {COMPANIES.map((company) => (
+            {companies.map((company) => (
               <li key={company.slug}>
                 <Link
                   href={`/${company.slug}`}
@@ -128,7 +142,7 @@ export function Nav() {
                   <span
                     aria-hidden="true"
                     className="h-2 w-2 rounded-full"
-                    style={{ background: company.accent.color }}
+                    style={{ background: company.accent }}
                   />
                   {company.name}
                 </Link>

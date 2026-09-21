@@ -51,6 +51,12 @@ export type Company = {
      * both white and cream. See styles/tokens.css.
      */
     ink: string;
+    /**
+     * Lightened variant for accent-coloured text and rules on the navy
+     * ground — the mirror of `ink`. The display blue and green measure 3.6:1
+     * and 3.4:1 on navy; these clear 7:1. Used by the Open Graph cards.
+     */
+    onDark: string;
   };
   /** `dark` subsidiaries invert the shell chrome (Hotels). */
   mood: 'light' | 'dark';
