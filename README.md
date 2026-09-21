@@ -197,8 +197,8 @@ the client's sign-off or replacement:
 - **Foundation prospectus PDF.** `/foundation/prospectus` is a print-optimised
   page with a print/save-as-PDF action, which stays in sync with the site. If a
   designed PDF is supplied, put it in `public/` and point the button at it.
-- **OG images.** Metadata is wired; per-subsidiary `opengraph-image` routes can
-  be added under each section folder.
+- **OG images.** Built: `lib/og.tsx` backs seven static cards (hub + each
+  company), each with its own accent and execution stage.
 
 ### Configuration
 
@@ -264,22 +264,42 @@ passes again once they are removed.
 
 Run against the production build on five representative pages (mobile preset):
 
-| Page | Perf | A11y | Best practices | SEO | LCP | CLS |
-|---|---|---|---|---|---|---|
-| Hub home | 98 | 100 | 100 | 100 | 2.5 s | 0 |
-| Hotels (dark) | 97 | 100 | 100 | 100 | 2.5 s | 0 |
-| Contact (form) | 98 | 100 | 100 | 100 | 2.5 s | 0 |
-| Agri School | 97 | 100 | 100 | 100 | 2.6 s | 0 |
-| Portfolio | 98 | 100 | 100 | 100 | 2.4 s | 0 |
+| Page | Perf | A11y | Best practices | SEO | CLS |
+|---|---|---|---|---|---|
+| Hub home | 98 | 100 | 100 | 100 | 0 |
+| Hotels (dark) | 97 | 100 | 100 | 100 | 0 |
+| Contact (form) | 98 | 100 | 100 | 100 | 0 |
+| Agri School | 96–97 | 100 | 100 | 100 | 0 |
+| Portfolio | 98 | 100 | 100 | 100 | 0 |
 
-All four categories clear the >= 90 target. CLS is 0 everywhere.
+All four categories clear the >= 90 target. CLS is 0 everywhere. LCP is broken
+out below, because it is the one target not comfortably met.
 
-Two caveats. These are **localhost** numbers: no network latency, no TLS
-handshake, no CDN, so the Performance column is optimistic and should be
-re-measured against the deployed URL. And LCP sits right on the 2.5 s
-threshold, so it is the first thing to check after deploying — the heroes are
-text on a CSS gradient, so the likeliest real-world lever is font delivery
-rather than images.
+These are **localhost** numbers: no network latency, no TLS handshake, no CDN.
+The Performance column is therefore optimistic and has to be re-measured
+against the deployed URL.
+
+### LCP against the < 2.5 s target
+
+Medians of three runs each, because single runs vary by up to 0.2 s:
+
+| Page | LCP median | Range | Verdict |
+|---|---|---|---|
+| Hub home | 2.49 s | 2.49–2.50 s | passes by 10 ms |
+| Hotels | 2.46 s | 2.37–2.48 s | passes |
+| Agri School | 2.63 s | 2.46–2.67 s | **over** |
+
+So the target is not comfortably met: two pages sit on the line and the
+longest page is over it. What was ruled out by measurement rather than
+assumption — TTFB is 10 ms, both fonts are already preloaded and self-hosted
+as single variable files, there are no render-blocking resources, and the
+inline SVGs total 4.4 KB. FCP is 0.8 s, so the gap to LCP is main-thread work,
+and the dominant cost is the ~590 KB of Next.js client runtime that the
+App Router ships regardless of how static the page is.
+
+There is no further honest localhost fix: the remaining levers are the CDN,
+HTTP/2 and real caching, none of which exist here. Re-measure after deploying
+before deciding whether this actually fails in the field.
 
 Not yet done: a Lighthouse run (needs a deployed URL for a meaningful
 Performance score), and real cross-browser/device testing.
