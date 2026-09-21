@@ -18,7 +18,7 @@ export const COMPANIES: Company[] = [
     summary:
       "The group's development arm. It runs community programmes today and is master-planning God's Plan Development City — an integrated education, health, technology, agriculture and industry campus.",
     status: 'in-development',
-    accent: { color: '#c9a227', soft: '#f6ecd2', contrast: '#0b1f3a', ink: '#7f6410' },
+    accent: { color: '#c9a227', soft: '#f6ecd2', contrast: '#0b1f3a', ink: '#7f6410', onDark: '#e4c765' },
     mood: 'light',
     nav: [
       { href: '/foundation', label: 'Overview' },
@@ -48,7 +48,7 @@ export const COMPANIES: Company[] = [
     summary:
       'A planned ultra-luxury hospitality company built around a flagship property with 300+ keys, signature dining, a destination spa and branded residences.',
     status: 'planning',
-    accent: { color: '#c9a227', soft: '#efe6d0', contrast: '#0b1f3a', ink: '#7f6410' },
+    accent: { color: '#c9a227', soft: '#efe6d0', contrast: '#0b1f3a', ink: '#7f6410', onDark: '#e4c765' },
     mood: 'dark',
     nav: [
       { href: '/hotels', label: 'Overview' },
@@ -80,7 +80,7 @@ export const COMPANIES: Company[] = [
     summary:
       'The engineering arm of the group: software delivery, applied AI, cybersecurity, financial-technology research and a training academy.',
     status: 'in-development',
-    accent: { color: '#2f6fed', soft: '#e3ecfd', contrast: '#0b1f3a', ink: '#2a63d6' },
+    accent: { color: '#2f6fed', soft: '#e3ecfd', contrast: '#0b1f3a', ink: '#2a63d6', onDark: '#7fa8ff' },
     mood: 'light',
     nav: [
       { href: '/tech', label: 'Overview' },
@@ -110,7 +110,7 @@ export const COMPANIES: Company[] = [
     summary:
       'Production and live-event company covering film and video, photography, livestreaming, event production and equipment rental.',
     status: 'in-development',
-    accent: { color: '#c9a227', soft: '#f2e8cf', contrast: '#0b1f3a', ink: '#7f6410' },
+    accent: { color: '#c9a227', soft: '#f2e8cf', contrast: '#0b1f3a', ink: '#7f6410', onDark: '#e4c765' },
     mood: 'light',
     nav: [
       { href: '/media-house', label: 'Overview' },
@@ -137,7 +137,7 @@ export const COMPANIES: Company[] = [
     summary:
       'A planned sunflower crushing and refining plant producing bottled and bulk edible oil, supplied by a contract-farming network.',
     status: 'planning',
-    accent: { color: '#5c7a3d', soft: '#e8eddf', contrast: '#0b1f3a', ink: '#506b35' },
+    accent: { color: '#5c7a3d', soft: '#e8eddf', contrast: '#0b1f3a', ink: '#506b35', onDark: '#9dbb77' },
     mood: 'light',
     nav: [
       { href: '/sunflower-factory', label: 'Overview' },
@@ -165,7 +165,7 @@ export const COMPANIES: Company[] = [
     summary:
       'Integrated livestock operation — poultry, piggery and aquaculture — with a feed mill and an agricultural school attached.',
     status: 'in-development',
-    accent: { color: '#5c7a3d', soft: '#e8eddf', contrast: '#0b1f3a', ink: '#506b35' },
+    accent: { color: '#5c7a3d', soft: '#e8eddf', contrast: '#0b1f3a', ink: '#506b35', onDark: '#9dbb77' },
     mood: 'light',
     nav: [
       { href: '/farm', label: 'Overview' },

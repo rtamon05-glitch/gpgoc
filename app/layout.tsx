@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import { Nav } from '@/components/layout/Nav';
+import { listCompanies } from '@/lib/cms';
 import { Footer } from '@/components/layout/Footer';
 import { Analytics } from '@/components/layout/Analytics';
 import { GROUP } from '@/content/group';
@@ -51,12 +52,20 @@ export const viewport: Viewport = {
   initialScale: 1,
 };
 
+/** Slimmed at the server boundary — see NavCompany in components/layout/Nav.tsx. */
+const navCompanies = listCompanies().map((c) => ({
+  slug: c.slug,
+  name: c.name,
+  sector: c.sector,
+  accent: c.accent.color,
+}));
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(organizationSchema())} />
-        <Nav />
+        <Nav companies={navCompanies} />
         <main id="main">{children}</main>
         <Footer />
         <Analytics />
